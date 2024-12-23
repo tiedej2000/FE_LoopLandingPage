@@ -1,0 +1,87 @@
+$darkGray: hsl(0, 0%, 55%);
+$veryDarkGray: hsl(0, 0%, 41%);
+$white: #ffffff;
+
+$fontAlata: "Alata", serif;
+$fontWeightAlata: 400;
+$fontJosefin: "Josefin Sans", serif;
+$fontWeightJosefin: 300;
+
+@mixin font($font-name) {
+  @if $font-name == 'Alata' {
+    font-family: $fontAlata;
+    font-weight: $fontWeightAlata;
+  } @else if $font-name == 'Josefin' {
+    font-family: $fontJosefin;
+    font-weight: $fontWeightJosefin;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    line-height: 1;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.landing-page{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.hero{
+    width: 80%;
+    height: 450px;
+    background-image: url(../images/desktop/image-hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+header{
+    width: 75%;
+    margin-top: 50px;
+
+    .experiences{
+        @include font('Josefin');
+        text-transform: uppercase;
+        color: $white;
+        font-size: 3rem;
+        margin-top: 100px;
+        padding: 25px;
+        width: 60%;
+        border: 2px solid $white;
+    }
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include font('Alata');
+    font-size: 0.8rem;
+
+    .left img{
+        height: 25px;
+    }
+
+    .right .nav-links{
+        display: flex;
+        gap: 20px;
+    }
+}
