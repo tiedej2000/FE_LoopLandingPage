@@ -6,6 +6,8 @@
 
 body {
   line-height: 1;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 ul {
@@ -17,7 +19,7 @@ a {
   color: white;
 }
 
-.landing-page {
+.section-one {
   width: 100%;
   height: auto;
   display: flex;
@@ -25,7 +27,7 @@ a {
 }
 
 .hero {
-  width: 80%;
+  width: 1700px;
   height: 450px;
   background-image: url(../images/desktop/image-hero.jpg);
   background-repeat: no-repeat;
@@ -35,7 +37,7 @@ a {
 }
 
 header {
-  width: 75%;
+  width: 1500px;
   margin-top: 50px;
 }
 header .experiences {
@@ -46,7 +48,7 @@ header .experiences {
   font-size: 3rem;
   margin-top: 100px;
   padding: 25px;
-  width: 60%;
+  width: 450px;
   border: 2px solid #ffffff;
 }
 
