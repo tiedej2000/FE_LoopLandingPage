@@ -6,6 +6,11 @@ $fontAlata: "Alata", serif;
 $fontWeightAlata: 400;
 $fontJosefin: "Josefin Sans", serif;
 $fontWeightJosefin: 300;
+$fsRegular: 15px;
+$fsH1: 4rem;
+
+$px: 165px;
+$mb: 180px;
 
 @mixin font($font-name) {
   @if $font-name == 'Alata' {
@@ -17,76 +22,101 @@ $fontWeightJosefin: 300;
   }
 }
 
+// html styling
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
-
-body {
   line-height: 1;
-  width: 100vw;
-  overflow-x: hidden;
+
 }
 
-ul {
+html{
+  @include font('Alata');
+  font-size: $fsRegular;
+}
+
+li{
   list-style-type: none;
 }
 
-a {
+a{
   text-decoration: none;
   color: white;
 }
 
-.section-one{
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
+h1,h2,h3{
+  @include font('Josefin');
+  text-transform: uppercase;
 }
 
-.hero{
-    width: 1700px;
-    height: 450px;
-    background-image: url(../images/desktop/image-hero.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
+
+// main container styling
+
+.main-container{
+  width: 1440px;
+  margin: auto;
 }
+
+// header styling
 
 header{
-    width: 1500px;
-    margin-top: 50px;
-
-    .experiences{
-        @include font('Josefin');
-        text-transform: uppercase;
-        color: $white;
-        font-size: 3rem;
-        margin-top: 100px;
-        padding: 25px;
-        width: 450px;
-        border: 2px solid $white;
-    }
+  background: black url(../images/desktop/image-hero.jpg) no-repeat center;
+  background-size: cover;
+  padding: 65px $px;
+  margin-bottom: $mb;
 }
 
 nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    @include font('Alata');
-    font-size: 0.8rem;
-
-    .left img{
-        height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $mb;
+  
+  .nav-left{
+    height: 25px;
+    img{
+      height: 100%;
     }
+  }
 
-    .right .nav-links{
-        display: flex;
-        gap: 20px;
+  .nav-right{
+    ul{
+      display: flex;
+      gap: 30px;
     }
+  }
 }
 
-// interactive vr section
+// active state li-elements
 
+nav ul li{
+  position: relative;
+}
+
+nav ul li::after{
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  transform: translateX(-50%);
+  background: #ffffff;
+}
+
+nav ul li:hover::after{
+  width: 30px;
+}
+
+// banner styling
+
+.banner h1{
+  padding: 40px;
+  border: 2px solid white;
+  font-size: $fsH1;
+  max-width: 600px;
+  color: #ffffff;
+  
+}
