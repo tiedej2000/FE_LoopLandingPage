@@ -68,6 +68,7 @@ nav .nav-right ul {
   position: absolute;
   right: 25px;
   display: none;
+  cursor: pointer;
 }
 
 nav ul li {

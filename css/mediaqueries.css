@@ -134,6 +134,7 @@
     height: 100vh;
     background-color: black;
     z-index: 19;
+    transition: right 0.3s ease;
   }
   .sidebar ul {
     display: flex;
