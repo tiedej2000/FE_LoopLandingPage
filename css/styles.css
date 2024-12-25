@@ -46,13 +46,28 @@ nav {
 }
 nav .nav-left {
   height: 25px;
-}
-nav .nav-left img {
-  height: 100%;
+  z-index: 22;
 }
 nav .nav-right ul {
   display: flex;
   gap: 30px;
+}
+
+.buttons {
+  position: relative;
+}
+
+.menu-toggle {
+  position: absolute;
+  right: 20px;
+  height: 20px;
+  display: none;
+}
+
+.close-sidebar {
+  position: absolute;
+  right: 25px;
+  display: none;
 }
 
 nav ul li {
@@ -68,6 +83,7 @@ nav ul li::after {
   height: 2px;
   transform: translateX(-50%);
   background: #ffffff;
+  transition: width 0.3s ease;
 }
 
 nav ul li:hover::after {
@@ -80,4 +96,209 @@ nav ul li:hover::after {
   font-size: 4rem;
   max-width: 600px;
   color: #ffffff;
+}
+
+.about {
+  position: relative;
+  padding: 0 165px;
+  margin-bottom: 180px;
+}
+.about .img-container img {
+  display: block;
+}
+.about .about-content {
+  position: absolute;
+  left: 50%;
+  top: 180px;
+  background-color: #ffffff;
+  padding: 100px;
+  max-width: 640px;
+}
+.about .about-content h2 {
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+}
+.about .about-content p {
+  line-height: 1.7;
+  color: hsl(0, 0%, 55%);
+}
+
+.products {
+  padding: 0 165px;
+  margin-bottom: 180px;
+  position: relative;
+}
+.products .heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+}
+.products .heading h2 {
+  font-size: 2.7rem;
+}
+.products .heading button {
+  padding: 5px 40px;
+  border-style: none;
+  background-color: #ffffff;
+  border: 1px solid black;
+  font-family: "Alata", serif;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  cursor: pointer;
+}
+.product-grid .product-container {
+  height: 450px;
+  position: relative;
+}
+.product-grid .product-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.product-grid .product-container h3 {
+  position: absolute;
+  z-index: 5;
+  font-size: 2.2rem;
+  bottom: 25px;
+  left: 30px;
+  color: #ffffff;
+  transition: color 0.6s ease;
+}
+
+.product-container::after {
+  content: "";
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  position: absolute;
+  transition: opacity 0.6s ease;
+}
+
+.product-container:hover::after {
+  opacity: 0.4;
+}
+
+.product-container:hover h3 {
+  opacity: 1;
+  color: black;
+}
+
+.heading button:hover {
+  background-color: black;
+  color: #ffffff;
+}
+
+.mobile-product-button {
+  display: none;
+  padding: 10px 25px;
+  border-style: none;
+  background-color: #ffffff;
+  border: 1px solid black;
+  font-family: "Alata", serif;
+  font-weight: 400;
+  letter-spacing: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer {
+  width: 100%;
+  padding: 30px 165px;
+  background-color: black;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.footer-links .footer-logo {
+  height: 20px;
+}
+.footer-links .footer-logo img {
+  height: 100%;
+}
+.footer-links .footer-socials ul {
+  display: flex;
+  gap: 10px;
+}
+.footer-links .footer-socials ul li img {
+  height: 20px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-nav .footer-nav-left ul {
+  display: flex;
+  gap: 30px;
+  font-size: 0.6rem;
+}
+.footer-nav .footer-nav-right p {
+  color: hsl(0, 0%, 55%);
+  font-size: 0.6rem;
+}
+
+.footer-socials ul li {
+  position: relative;
+}
+
+.footer-socials ul li::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  background: #ffffff;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.footer-socials ul li:hover::after {
+  width: 18px;
+}
+
+.footer-nav-left ul li {
+  position: relative;
+}
+
+.footer-nav-left ul li::after {
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  background: #ffffff;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.footer-nav-left ul li:hover::after {
+  width: 18px;
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    width: 100vw;
+    height: auto;
+  }
 }/*# sourceMappingURL=styles.css.map */

@@ -8,6 +8,9 @@ $fontJosefin: "Josefin Sans", serif;
 $fontWeightJosefin: 300;
 $fsRegular: 15px;
 $fsH1: 4rem;
+$fsH2: 3.5rem;
+$fsH3: 2.7rem;
+$fsH4: 2.2rem;
 
 $px: 165px;
 $mb: 180px;
@@ -76,9 +79,7 @@ nav{
   
   .nav-left{
     height: 25px;
-    img{
-      height: 100%;
-    }
+    z-index: 22;
   }
 
   .nav-right{
@@ -87,6 +88,21 @@ nav{
       gap: 30px;
     }
   }
+}
+.buttons{
+  position: relative;
+}
+.menu-toggle{
+  position: absolute;
+  right: 20px;
+  height: 20px;
+  display: none;
+}
+
+.close-sidebar{
+  position: absolute;
+  right: 25px;
+  display: none;
 }
 
 // active state li-elements
@@ -104,6 +120,7 @@ nav ul li::after{
   height: 2px;
   transform: translateX(-50%);
   background: #ffffff;
+  transition: width 0.3s ease;
 }
 
 nav ul li:hover::after{
@@ -117,6 +134,244 @@ nav ul li:hover::after{
   border: 2px solid white;
   font-size: $fsH1;
   max-width: 600px;
+  color: #ffffff; 
+}
+
+// about section styling
+
+.about{
+  position: relative;
+  padding: 0 $px;
+  margin-bottom: $mb;
+
+  .img-container img{
+    display: block;
+  }
+
+  .about-content{
+    position: absolute;
+    left: 50%;
+    top: 180px;
+    background-color: #ffffff;
+    padding: 100px;
+    max-width: 640px;
+
+    h2{
+      font-size: $fsH2;
+      margin-bottom: 30px;
+    }
+
+    p{
+      line-height: 1.7;
+      color: $darkGray;
+
+    }
+  }
+}
+
+// product styling
+
+.products{
+  padding: 0 $px;
+  margin-bottom: $mb;
+  position: relative;
+
+  .heading{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+
+    h2{
+      font-size: $fsH3;
+    }
+
+    button{
+      padding: 5px 40px;
+      border-style: none;
+      background-color: #ffffff;
+      border: 1px solid black;
+      @include font('Alata');
+      letter-spacing: 0.3rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  }
+}
+
+.product-grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(2,1fr);
+  gap: 30px;
+  cursor: pointer;
+
+  .product-container{
+    height: 450px;
+    position: relative;
+
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h3{
+      position: absolute;
+      z-index: 5;
+      font-size: $fsH4;
+      bottom: 25px;
+      left: 30px;
+      color: #ffffff;
+      transition: color 0.6s ease;
+    }
+  }
+}
+
+// active state products container
+
+.product-container::after {
+  content: '';
+  background: #ffffff;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  position: absolute;
+  transition: opacity 0.6s ease;
+
+}
+
+.product-container:hover::after{
+  opacity: 0.4;
+}
+
+.product-container:hover h3 {
+  opacity: 1; 
+  color: black; 
+}
+
+.heading button:hover{
+  background-color: black;
   color: #ffffff;
-  
+}
+
+.mobile-product-button{
+  display: none;
+  padding: 10px 25px;
+      border-style: none;
+      background-color: #ffffff;
+      border: 1px solid black;
+      @include font('Alata');
+      letter-spacing: 0.3rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// footer styling
+
+footer{
+  width: 100%;
+  padding: 30px $px;
+  background-color: black;
+}
+
+.footer-links{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .footer-logo{
+    height: 20px;
+
+    img{
+      height: 100%;
+    }
+  }
+
+  .footer-socials ul{
+    display: flex;
+    gap: 10px;
+  }
+
+  .footer-socials ul li img{
+    height: 20px;
+  }
+}
+
+.footer-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .footer-nav-left ul{
+    display: flex;
+    gap: 30px;
+    font-size: 0.6rem;
+  }
+
+  .footer-nav-right p{
+    color: $darkGray;
+    font-size: 0.6rem;
+  }
+}
+
+// footer active states
+
+.footer-socials ul li{
+  position: relative;
+}
+
+.footer-socials ul li::after{
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  background: #ffffff;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.footer-socials ul li:hover::after{
+  width: 18px;
+}
+
+
+.footer-nav-left ul li{
+  position: relative;
+}
+
+.footer-nav-left ul li::after{
+  content: "";
+  position: absolute;
+  width: 0px;
+  height: 2px;
+  background: #ffffff;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.footer-nav-left ul li:hover::after{
+  width: 18px;
+}
+
+
+@media(max-width:600px){
+
+  $fsH1: 4rem;
+  $fsH2: 3.5rem;
+  $fsH3: 2.7rem;
+  $fsH4: 2.2rem;
+
+
+  .main-container{
+    width: 100vw;
+    height: auto;
+  }
 }
